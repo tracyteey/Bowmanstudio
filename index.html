@@ -4,24 +4,27 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bill Ryan Owano | Bowman Studio</title>
-<meta name="description" content="Bill Ryan Owano (Bowman Studio) — Multidisciplinary creative specializing in Graphic Design, Motion Design, Art Direction, and Visual Storytelling.">
+<meta name="description" content="Bill Ryan Owano (Bowman Studio) — Art and storytelling that disobey the ordinary. Specializing in Graphic Design, Motion Design, and Animation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green:        #2D6E42;
-    --green-bright: #3E9B5A;
-    --green-dark:   #1A3D26;
-    --green-glow:   rgba(62,155,90,0.18);
-    --bg:           #070706;
-    --bg2:          #0C0C0A;
-    --bg3:          #111110;
+    /* Jungle/Forest Green Dominant Palette */
+    --green:        #2e6c51; 
+    --green-bright: #6AB023; 
+    --green-dark:   #153326;
+    --green-glow:   rgba(106, 176, 35, 0.15);
+    
+    /* Avant-Garde Minimalist Darks */
+    --bg:           #0a0a0a;
+    --bg2:          #111111;
+    --bg3:          #161616;
     --cream:        #EDE8DC;
     --cream-dim:    rgba(237,232,220,0.65);
-    --muted:        #6A6A62;
-    --border:       rgba(45,110,66,0.18);
-    --border-bright:rgba(62,155,90,0.4);
+    --muted:        #7a7a7a;
+    --border:       rgba(46, 108, 81, 0.25);
+    --border-bright:rgba(106, 176, 35, 0.5);
   }
 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -37,15 +40,16 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* ─── GRAIN OVERLAY ─── */
+  /* ─── HEAVIER GRUNGE GRAIN OVERLAY ─── */
   .grain {
     position: fixed;
     inset: 0;
     z-index: 9998;
     pointer-events: none;
-    opacity: 0.055;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.08; /* Slightly heavier for that grungy texture */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
     background-repeat: repeat;
+    mix-blend-mode: overlay;
   }
 
   /* ─── CUSTOM CURSOR ─── */
@@ -63,7 +67,7 @@
   #cur-ring {
     position: fixed;
     width: 38px; height: 38px;
-    border: 1px solid var(--green);
+    border: 1px solid var(--green-bright);
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
@@ -85,7 +89,7 @@
     transition: background .4s, border-bottom .4s, backdrop-filter .4s;
   }
   nav.scrolled {
-    background: rgba(7,7,6,0.88);
+    background: rgba(10,10,10,0.88);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
   }
@@ -121,9 +125,13 @@
     border: 1px solid var(--border-bright);
     padding: .5rem 1.1rem;
     text-decoration: none;
-    transition: background .3s, color .3s;
+    transition: background .3s, color .3s, border-color .3s;
   }
-  .nav-cta:hover { background: var(--green-bright); color: var(--bg); }
+  .nav-cta:hover { 
+    background: var(--green-bright); 
+    color: var(--bg); 
+    border-color: var(--green-bright);
+  }
 
   /* ─── HERO ─── */
   #hero {
@@ -145,7 +153,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(9rem, 20vw, 20rem);
     color: transparent;
-    -webkit-text-stroke: 1px rgba(45,110,66,.12);
+    -webkit-text-stroke: 1px rgba(106, 176, 35, 0.08); /* Jungle green stroke */
     white-space: nowrap;
     pointer-events: none;
     letter-spacing: -.02em;
@@ -158,7 +166,7 @@
     top: 0; bottom: 0;
     left: 33.3%;
     width: 1px;
-    background: linear-gradient(to bottom, transparent, rgba(45,110,66,.15) 40%, transparent);
+    background: linear-gradient(to bottom, transparent, var(--border) 40%, transparent);
     pointer-events: none;
   }
 
@@ -268,17 +276,10 @@
     margin-bottom: 3rem;
   }
 
-  .section-rule {
-    width: 100%;
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 5rem;
-  }
-
-  /* ─── ABOUT ─── */
+  /* ─── ABOUT / THE UPLOADED IMAGE ─── */
   #about {
     display: grid;
-    grid-template-columns: 1.1fr .9fr;
+    grid-template-columns: 1fr 1fr;
     gap: 6rem;
     align-items: center;
     background: var(--bg2);
@@ -299,33 +300,68 @@
     margin-bottom: 1.4rem;
   }
 
-  .about-stats {
-    position: relative;
-    border: 1px solid var(--border);
-    padding: 3rem 2.8rem;
+  .about-stats-container {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
   }
-  .about-stats::before {
-    content: '';
-    position: absolute;
-    top: -1px; left: 2.5rem;
-    width: 3.5rem; height: 2px;
-    background: var(--green-bright);
-  }
-  .stat { margin-bottom: 2.4rem; }
-  .stat:last-child { margin-bottom: 0; }
+  .stat { flex: 1; }
   .stat-n {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 4.2rem;
+    font-size: 3.5rem;
     color: var(--green-bright);
     line-height: 1;
   }
   .stat-l {
     font-family: 'Space Mono', monospace;
-    font-size: .6rem;
-    letter-spacing: .18em;
+    font-size: .55rem;
+    letter-spacing: .15em;
     color: var(--muted);
     text-transform: uppercase;
-    margin-top: .2rem;
+    margin-top: .4rem;
+  }
+
+  /* NEW: Image styling for the uploaded photo */
+  .about-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    /* The floating animation makes it feel alive */
+    animation: floatImage 7s ease-in-out infinite;
+  }
+  .about-image-wrapper::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 10%;
+    width: 80%;
+    height: 20px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 50%;
+    filter: blur(15px);
+    animation: floatShadow 7s ease-in-out infinite;
+  }
+  .about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Blend the white background of the image slightly into the dark theme */
+    mix-blend-mode: screen; 
+    filter: contrast(1.1) grayscale(15%);
+  }
+
+  @keyframes floatImage {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  @keyframes floatShadow {
+    0% { transform: scale(1); opacity: 0.6; }
+    50% { transform: scale(0.8); opacity: 0.3; }
+    100% { transform: scale(1); opacity: 0.6; }
   }
 
   /* ─── SKILLS ─── */
@@ -494,7 +530,7 @@
     width: 8px; height: 8px;
     background: var(--green-bright);
     border-radius: 50%;
-    box-shadow: 0 0 18px rgba(62,155,90,.55);
+    box-shadow: 0 0 18px var(--green-glow);
   }
 
   .t-year {
@@ -526,7 +562,7 @@
     max-width: 520px;
   }
 
-  /* ─── CLIENTS MARQUEE ─── */
+  /* ─── MEGA CLIENTS MARQUEE ─── */
   #clients {
     background: var(--bg2);
     padding: 6rem 0;
@@ -569,19 +605,22 @@
   }
   .client-name {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.7rem;
+    font-size: 2rem;
     color: rgba(237,232,220,.18);
     letter-spacing: .1em;
     padding: 0 3rem;
-    transition: color .3s;
+    transition: color .3s, transform .3s;
     white-space: nowrap;
     cursor: none;
   }
-  .client-name:hover { color: rgba(237,232,220,.55); }
+  .client-name:hover { 
+    color: var(--green-bright); 
+    transform: scale(1.05);
+  }
 
   .client-sep {
-    width: 5px; height: 5px;
-    background: var(--green-dark);
+    width: 6px; height: 6px;
+    background: var(--green);
     border-radius: 50%;
     flex-shrink: 0;
   }
@@ -589,6 +628,75 @@
   @keyframes marquee {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
+  }
+
+  /* ─── CREATIVE JOURNEY ─── */
+  #journey { background: var(--bg3); }
+
+  .journey-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 7.5vw, 7.5rem);
+    line-height: .9;
+    margin-bottom: 5rem;
+    color: var(--cream);
+  }
+  .journey-title .green { color: var(--green-bright); }
+
+  .journey-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+
+  .j-card {
+    padding: 3.5rem 3rem;
+    background: var(--bg3);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .65s ease, transform .65s ease;
+  }
+  .j-card.visible { opacity: 1; transform: translateY(0); }
+
+  .j-card.wide { grid-column: span 2; }
+
+  .j-ghost-n {
+    position: absolute;
+    top: -1.5rem; right: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 9rem;
+    color: rgba(46, 108, 81, 0.05); /* very faint green */
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .j-year {
+    font-family: 'Space Mono', monospace;
+    font-size: .58rem;
+    letter-spacing: .22em;
+    color: var(--green-bright);
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    display: block;
+    position: relative;
+  }
+  .j-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.6rem;
+    color: var(--cream);
+    margin-bottom: .9rem;
+    position: relative;
+  }
+  .j-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(237,232,220,.58);
+    line-height: 1.8;
+    position: relative;
+    max-width: 520px;
   }
 
   /* ─── CONTACT ─── */
@@ -607,7 +715,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(5rem, 13vw, 14rem);
     color: transparent;
-    -webkit-text-stroke: 1px rgba(62,155,90,.15);
+    -webkit-text-stroke: 1px rgba(106, 176, 35, 0.15);
     white-space: nowrap;
     pointer-events: none;
     user-select: none;
@@ -647,7 +755,7 @@
     font-size: 1.45rem;
     color: rgba(237,232,220,.7);
     text-decoration: none;
-    border-bottom: 1px solid rgba(62,155,90,.35);
+    border-bottom: 1px solid rgba(106, 176, 35, 0.35);
     padding-bottom: .2rem;
     margin: 0 1rem;
     position: relative;
@@ -671,13 +779,13 @@
     text-decoration: none;
     transition: color .3s;
   }
-  .social-link:hover { color: var(--cream); }
+  .social-link:hover { color: var(--green-bright); }
 
   /* ─── FOOTER ─── */
   <footer>
-    <span class="footer-copy">© 2025 Bill Ryan Owano</span>
+    <span class="footer-copy">© 2026 Bowman Studio</span>
     <span class="footer-loc">Nairobi, Kenya</span>
-    <span class="footer-mantra">In Arte, significatione. In significatione, Ars.</span>
+    <span class="footer-mantra">Art that disobeys the ordinary.</span>
   </footer>
 
   /* ─── KEYFRAMES ─── */
@@ -698,6 +806,8 @@
     #about { grid-template-columns: 1fr; gap: 3rem; }
     .skills-grid { grid-template-columns: 1fr; }
     .work-grid { grid-template-columns: 1fr; }
+    .journey-grid { grid-template-columns: 1fr; }
+    .j-card.wide { grid-column: span 1; }
     #hero { padding: 0 2rem 4rem; }
     .hero-scroll { display: none; }
     .hero-counter { display: none; }
@@ -707,6 +817,7 @@
 
   @media (max-width: 480px) {
     .hero-title { font-size: clamp(3rem, 16vw, 5rem); }
+    .about-stats-container { flex-direction: column; gap: 1.5rem; }
   }
 </style>
 </head>
@@ -717,21 +828,22 @@
 <div id="cur-ring"></div>
 
 <nav id="nav">
-  <a href="#hero" class="nav-logo">Bill Ryan Owano</a>
+  <a href="#hero" class="nav-logo">Bowman Studio</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#work">Selected Work</a></li>
-    <li><a href="#experience">CV</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#journey">Journey</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Let's Connect</a>
 </nav>
 
 <section id="hero">
-  <div class="hero-ghost">OWANO</div>
+  <div class="hero-ghost">BOWMAN</div>
   <div class="hero-line"></div>
 
-  <span class="hero-label">Bill Ryan Owano — Storyteller · Designer</span>
+  <span class="hero-label">Bill Ryan Owano — Bowman Studio</span>
   <h1 class="hero-title">
     Bowman
     <span class="accent">Studio</span>
@@ -743,7 +855,7 @@
     <span>Scroll</span>
   </div>
 
-  <div class="hero-counter">Design — Direction — Narrative</div>
+  <div class="hero-counter">Graphics — Motion — Animation</div>
 </section>
 
 <section id="about">
@@ -752,21 +864,22 @@
     <h2 class="about-title">I've always asked<br><em>too many</em><br>questions.</h2>
     <p class="about-body">Why does this ad work on me? Why does this colour feel like safety? Why does good design make silence feel full? I fell in love with design when I realized it could answer those questions without saying a word.</p>
     <p class="about-body">My process blends design, direction, and narrative thinking not because it sounds clever, but because people remember meaning more than they remember visuals. Design isn't decoration; it's logic wrapped in emotion.</p>
-  </div>
-  <div class="about-right reveal" style="transition-delay:.2s">
-    <div class="about-stats">
+    
+    <div class="about-stats-container">
       <div class="stat">
         <div class="stat-n">06+</div>
-        <div class="stat-l">Years Multidisciplinary Experience</div>
+        <div class="stat-l">Years Multi-<br>disciplinary Exp</div>
       </div>
       <div class="stat">
         <div class="stat-n">All</div>
-        <div class="stat-l">In on starting with a blank page. It dares you.</div>
+        <div class="stat-l">In on starting with<br>a blank page.</div>
       </div>
-      <div class="stat">
-        <div class="stat-n">Yes</div>
-        <div class="stat-l">I like a good dare.</div>
-      </div>
+    </div>
+  </div>
+  
+  <div class="about-right reveal" style="transition-delay:.2s">
+    <div class="about-image-wrapper">
+      <img src="noir-generation-1772370163960.jpg" alt="Bowman Studio - Avant Garde Creative Mind" class="about-img">
     </div>
   </div>
 </section>
@@ -774,7 +887,7 @@
 <section id="skills">
   <div class="skills-head reveal">
     <div>
-      <span class="tag">002 — Core Skills</span>
+      <span class="tag">002 — Services & Skills</span>
       <h2 class="section-title">What I<br>Master.</h2>
     </div>
     <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);font-size:1.1rem;max-width:240px;line-height:1.6;text-align:right">Call it structure.<br>Call it alchemy.<br>I just call it fun.</p>
@@ -783,29 +896,33 @@
 
     <div class="skill-card reveal">
       <span class="skill-num">01</span>
-      <div class="skill-name">Art Direction</div>
-      <p class="skill-desc">Guiding visual narratives from concept to execution. Ensuring every piece of creative collateral aligns with the core brand story across digital, print, and video.</p>
+      <div class="skill-name">Graphic Design</div>
+      <p class="skill-desc">Visual language engineered for impact. Brand identities, editorial layouts, and poster art that carry weight and meaning in every measured detail.</p>
       <div class="tags">
-        <span class="pill">Storyboarding</span>
-        <span class="pill">Visual Strategy</span>
+        <span class="pill">Branding</span>
+        <span class="pill">Editorial</span>
+        <span class="pill">Typography</span>
+        <span class="pill">Art Direction</span>
       </div>
     </div>
 
     <div class="skill-card reveal" style="transition-delay:.12s">
       <span class="skill-num">02</span>
-      <div class="skill-name">Graphic & Motion Design</div>
-      <p class="skill-desc">Crafting digital content, corporate communications, and dynamic motion graphics. Building assets that solve problems and connect with audiences.</p>
+      <div class="skill-name">Motion Design</div>
+      <p class="skill-desc">Still images that refuse to stay still. I breathe life into ideas through deliberate, fluid motion that tells a story without a single word.</p>
       <div class="tags">
-        <span class="pill">Motion Graphics</span>
-        <span class="pill">Animation</span>
+        <span class="pill">After Effects</span>
+        <span class="pill">Kinetic Type</span>
+        <span class="pill">Seamless Loops</span>
       </div>
     </div>
 
     <div class="skill-card reveal" style="transition-delay:.24s">
       <span class="skill-num">03</span>
-      <div class="skill-name">Campaign & Deck Design</div>
-      <p class="skill-desc">Developing cohesive Below-The-Line (BTL) and Above-The-Line (ATL) campaign designs, alongside high-stakes pitch decks for major clients.</p>
+      <div class="skill-name">Animation & More</div>
+      <p class="skill-desc">From frame zero to the final hold. Developing cohesive BTL/ATL campaign designs, alongside high-stakes pitch decks and animated narratives.</p>
       <div class="tags">
+        <span class="pill">Animation</span>
         <span class="pill">BTL Campaigns</span>
         <span class="pill">Deck Design</span>
       </div>
@@ -844,23 +961,11 @@
       <a href="#" target="_blank" class="btn-video">Watch Video</a>
     </div>
 
-    <div class="work-card reveal">
-      <h3 class="work-client">CITAM</h3>
-      <p class="work-desc">Art direction for CITAM and Hope's Children programs and services. Designed posters, motion designs, and newsletters (including the successful Family Discipleship Conference materials).</p>
-      <a href="#" target="_blank" class="btn-video">Watch Video</a>
-    </div>
-
-    <div class="work-card reveal" style="transition-delay:.1s">
-      <h3 class="work-client">Kulture Experience</h3>
-      <p class="work-desc">Created the complete on-screen visual experience for the "FLYTE" NYE event at Carnivore. Deliverables included flight-themed DJ motion cards, sponsor loops, and the main stage New Year's countdown.</p>
-      <a href="#" target="_blank" class="btn-video">Watch Video</a>
-    </div>
-
   </div>
 </section>
 
 <section id="experience">
-  <span class="tag reveal">004 — Résumé</span>
+  <span class="tag reveal">004 — Experience</span>
   <h2 class="section-title reveal" style="margin-bottom:0">The Professional<br>Timeline.</h2>
 
   <div class="timeline">
@@ -891,26 +996,12 @@
       <div class="t-company">Bowman Studio — Nairobi, Kenya</div>
       <p class="t-desc">Provided branding, video editing, and campaign design for individual and SME clients. Designed and published books, built logos, brand guidelines, motion reels, and social content from scratch.</p>
     </div>
-
-    <div class="t-item" style="transition-delay:.4s">
-      <div class="t-year">Jun 2019 — Dec 2020</div>
-      <div class="t-role">Graphic Designer</div>
-      <div class="t-company">Indiko Harrison — Nairobi, Kenya</div>
-      <p class="t-desc">Handled client branding briefs across multiple sectors, video editing works, and supported the operations team in design and promotional asset creation.</p>
-    </div>
-
-    <div class="t-item" style="transition-delay:.5s">
-      <div class="t-year">Education</div>
-      <div class="t-role">Academic Background</div>
-      <div class="t-company">Daystar University & Kisii High School</div>
-      <p class="t-desc">Diploma in Communication (Electronic Media) from Daystar University (2022-2023). Certificate in Graphic Design from Daystar University (2017). KCSE Certification from Kisii High School (2013-2016).</p>
-    </div>
   </div>
 </section>
 
 <section id="clients">
   <div class="clients-inner">
-    <span class="tag" style="text-align:center;display:block">005 — Clientele</span>
+    <span class="tag" style="text-align:center;display:block">005 — Mega Clients</span>
     <h2 class="clients-title reveal">Trusted By.</h2>
   </div>
 
@@ -919,12 +1010,11 @@
       <div class="m-chunk">
         <span class="client-name">Absa</span><span class="client-sep"></span>
         <span class="client-name">Jack Daniels</span><span class="client-sep"></span>
-        <span class="client-name">Fresha</span><span class="client-sep"></span>
         <span class="client-name">Stanbic Bank</span><span class="client-sep"></span>
         <span class="client-name">GTBank</span><span class="client-sep"></span>
         <span class="client-name">Corteva</span><span class="client-sep"></span>
-        <span class="client-name">KNLS</span><span class="client-sep"></span>
         <span class="client-name">AGRA</span><span class="client-sep"></span>
+        <span class="client-name">Fresha</span><span class="client-sep"></span>
         <span class="client-name">KenInvest</span><span class="client-sep"></span>
         <span class="client-name">CITAM</span><span class="client-sep"></span>
         <span class="client-name">Patiala Distillery</span><span class="client-sep"></span>
@@ -933,12 +1023,11 @@
       <div class="m-chunk" aria-hidden="true">
         <span class="client-name">Absa</span><span class="client-sep"></span>
         <span class="client-name">Jack Daniels</span><span class="client-sep"></span>
-        <span class="client-name">Fresha</span><span class="client-sep"></span>
         <span class="client-name">Stanbic Bank</span><span class="client-sep"></span>
         <span class="client-name">GTBank</span><span class="client-sep"></span>
         <span class="client-name">Corteva</span><span class="client-sep"></span>
-        <span class="client-name">KNLS</span><span class="client-sep"></span>
         <span class="client-name">AGRA</span><span class="client-sep"></span>
+        <span class="client-name">Fresha</span><span class="client-sep"></span>
         <span class="client-name">KenInvest</span><span class="client-sep"></span>
         <span class="client-name">CITAM</span><span class="client-sep"></span>
         <span class="client-name">Patiala Distillery</span><span class="client-sep"></span>
@@ -948,8 +1037,52 @@
   </div>
 </section>
 
+<section id="journey">
+  <span class="tag reveal">006 — Creative Journey</span>
+  <h2 class="journey-title reveal">The Story<br>So <span class="green">Far.</span></h2>
+
+  <div class="journey-grid">
+
+    <div class="j-card wide">
+      <div class="j-ghost-n">00</div>
+      <span class="j-year">Origin — The Obsession</span>
+      <h3 class="j-title">Born Restless</h3>
+      <p class="j-body">Bowman Studio didn't start with a business plan — it started with an obsession. A need to make things that felt wrong in all the right ways. The ordinary was never enough. I was always drawn to the edges of visual culture; the places where the rules dissolve and genuine creative energy ignites. From day one, the question wasn't "what does the client want?" — it was "what has never been seen before?"</p>
+    </div>
+
+    <div class="j-card" style="transition-delay:.1s">
+      <div class="j-ghost-n">01</div>
+      <span class="j-year">2016 – 2018</span>
+      <h3 class="j-title">The Craft</h3>
+      <p class="j-body">Deep, relentless dives into typography, colour theory, and frame-by-frame animation. Building the foundation of a visual language that would become unmistakably Bowman — disciplined yet disobedient.</p>
+    </div>
+
+    <div class="j-card" style="transition-delay:.2s">
+      <div class="j-ghost-n">02</div>
+      <span class="j-year">2021</span>
+      <h3 class="j-title">Going Global</h3>
+      <p class="j-body">The work began travelling beyond Nairobi. Campaigns, brand films, and animated identities for clients who wanted something they had never seen before — and trusted me to deliver it.</p>
+    </div>
+
+    <div class="j-card" style="transition-delay:.3s">
+      <div class="j-ghost-n">03</div>
+      <span class="j-year">2024</span>
+      <h3 class="j-title">Studio Born</h3>
+      <p class="j-body">Formalising the obsession into a studio. A name. A practice. A manifesto: art and storytelling that disobey the ordinary. Bowman Studio opens its doors — and refuses to follow the crowd through them.</p>
+    </div>
+
+    <div class="j-card" style="transition-delay:.4s">
+      <div class="j-ghost-n">04</div>
+      <span class="j-year">Now — Always</span>
+      <h3 class="j-title">The Next Chapter</h3>
+      <p class="j-body">Bigger briefs. Bolder visions. I'm not chasing trends — I'm setting the tone for what creative culture looks like when it refuses to play it safe. The story continues.</p>
+    </div>
+
+  </div>
+</section>
+
 <section id="contact">
-  <span class="contact-tag">006 — Contact</span>
+  <span class="contact-tag">007 — Contact</span>
   <h2 class="contact-head">Let's Connect.</h2>
   <p class="contact-sub">Call: +254 719 861 270</p>
   <a href="mailto:billow.ryan@gmail.com" class="contact-email">billow.ryan@gmail.com</a>
@@ -961,9 +1094,9 @@
 </section>
 
 <footer>
-  <span class="footer-copy">© 2025 Bill Ryan Owano</span>
+  <span class="footer-copy">© 2026 Bowman Studio</span>
   <span class="footer-loc">Nairobi, Kenya</span>
-  <span class="footer-mantra">In Arte, significatione. In significatione, Ars.</span>
+  <span class="footer-mantra">Art and storytelling that disobey the ordinary.</span>
 </footer>
 
 <script>
@@ -986,7 +1119,7 @@
     requestAnimationFrame(animRing);
   })();
 
-  document.querySelectorAll('a, .skill-card, .work-card, button').forEach(el => {
+  document.querySelectorAll('a, .skill-card, .work-card, .j-card, button').forEach(el => {
     el.addEventListener('mouseenter', () => {
       dot.style.transform  = 'translate(-50%,-50%) scale(2.5)';
       ring.style.width     = '58px';
@@ -1024,7 +1157,7 @@
     });
   }, { threshold: .12 });
 
-  document.querySelectorAll('.reveal, .t-item, .work-card').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal, .t-item, .work-card, .j-card').forEach(el => observer.observe(el));
 </script>
 
 </body>
