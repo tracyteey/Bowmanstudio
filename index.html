@@ -785,67 +785,367 @@
     <span class="footer-mantra">Art and storytelling that disobey the ordinary.</span>
   </footer>
 
-  /* ─── SCRIPTS ─── */
-  <script>
-    /* Custom cursor */
-    const dot  = document.getElementById('cur-dot');
-    const ring = document.getElementById('cur-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1.5rem 2rem; }
+    .nav-links, .nav-cta { display: none; }
+    section { padding: 5rem 2rem; }
+    #about { grid-template-columns: 1fr; gap: 3rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .work-grid { grid-template-columns: 1fr; }
+    .journey-grid { grid-template-columns: 1fr; }
+    .j-card.wide { grid-column: span 1; }
+    #hero { padding: 0 2rem 4rem; }
+    .hero-scroll { display: none; }
+    .hero-counter { display: none; }
+    footer { flex-direction: column; gap: .8rem; text-align: center; }
+    .skills-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  }
 
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      dot.style.left = mx + 'px';
-      dot.style.top  = my + 'px';
+  @media (max-width: 480px) {
+    .hero-title { font-size: clamp(3rem, 16vw, 5rem); }
+    .about-stats-container { flex-direction: column; gap: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<nav id="nav">
+  <a href="#hero" class="nav-logo">Bill Ryan Owano</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#journey">Journey</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Connect</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-ghost">OWANO</div>
+  <div class="hero-line"></div>
+
+  <span class="hero-label">Bill Ryan Owano</span>
+  <h1 class="hero-title">
+    Bill
+    <span class="accent">Owano</span>
+  </h1>
+  <p class="hero-tagline">Art and storytelling<br>that disobey the ordinary.</p>
+
+  <div class="hero-scroll">
+    <div class="scroll-bar"></div>
+    <span>Scroll</span>
+  </div>
+
+  <div class="hero-counter">Graphics — Motion — Animation</div>
+</section>
+
+<section id="about">
+  <div class="about-left reveal">
+    <span class="tag">001 — About Me</span>
+    <h2 class="about-title">I've always asked<br><em>too many</em><br>questions.</h2>
+    <p class="about-body">Why does this ad work on me? Why does this colour feel like safety? Why does good design make silence feel full? I fell in love with design when I realized it could answer those questions without saying a word.</p>
+    <p class="about-body">My process blends design, direction, and narrative thinking not because it sounds clever, but because people remember meaning more than they remember visuals. Design isn't decoration; it's logic wrapped in emotion.</p>
+    
+    <div class="about-stats-container">
+      <div class="stat">
+        <div class="stat-n">06+</div>
+        <div class="stat-l">Years Multi-<br>disciplinary Exp</div>
+      </div>
+      <div class="stat">
+        <div class="stat-n">All</div>
+        <div class="stat-l">In on starting with<br>a blank page.</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="about-right reveal" style="transition-delay:.2s">
+    <div class="about-image-wrapper">
+      <img src="noir-generation-1772370163960.jpg" alt="Bill Ryan Owano" class="about-img">
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="skills-head reveal">
+    <div>
+      <span class="tag">002 — Services & Skills</span>
+      <h2 class="section-title">What I<br>Master.</h2>
+    </div>
+    <p style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--muted);font-size:1.1rem;max-width:240px;line-height:1.6;text-align:right">Call it structure.<br>Call it alchemy.<br>I just call it fun.</p>
+  </div>
+  <div class="skills-grid">
+
+    <div class="skill-card reveal">
+      <span class="skill-num">01</span>
+      <div class="skill-name">Graphic Design</div>
+      <p class="skill-desc">Visual language engineered for impact. Brand identities, editorial layouts, and poster art that carry weight and meaning in every measured detail.</p>
+      <div class="tags">
+        <span class="pill">Branding</span>
+        <span class="pill">Editorial</span>
+        <span class="pill">Typography</span>
+        <span class="pill">Art Direction</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal" style="transition-delay:.12s">
+      <span class="skill-num">02</span>
+      <div class="skill-name">Motion Design</div>
+      <p class="skill-desc">Still images that refuse to stay still. I breathe life into ideas through deliberate, fluid motion that tells a story without a single word.</p>
+      <div class="tags">
+        <span class="pill">After Effects</span>
+        <span class="pill">Kinetic Type</span>
+        <span class="pill">Seamless Loops</span>
+      </div>
+    </div>
+
+    <div class="skill-card reveal" style="transition-delay:.24s">
+      <span class="skill-num">03</span>
+      <div class="skill-name">Animation & More</div>
+      <p class="skill-desc">From frame zero to the final hold. Developing cohesive BTL/ATL campaign designs, alongside high-stakes pitch decks and animated narratives.</p>
+      <div class="tags">
+        <span class="pill">Animation</span>
+        <span class="pill">BTL Campaigns</span>
+        <span class="pill">Deck Design</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="work">
+  <span class="tag reveal">003 — Selected Work</span>
+  <h2 class="section-title reveal">Logic wrapped<br>in emotion.</h2>
+
+  <div class="work-grid">
+    
+    <div class="work-card reveal">
+      <h3 class="work-client">Absa</h3>
+      <p class="work-desc">Co-directed creative vision and contributed to high-stakes national campaigns including "Here to Goals", "Every kind of you", and "Your Story Matters Launch". Focus on digital, print, video, and OOH multi-channel platforms.</p>
+      <a href="#" target="_blank" class="btn-video">Watch Video</a>
+    </div>
+
+    <div class="work-card reveal" style="transition-delay:.1s">
+      <h3 class="work-client">Jack Daniel's</h3>
+      <p class="work-desc">Led Art Direction for the national "Make It Count" campaign. Executed intricate BTL ground assets including bar setups, off-premise activation shelves, and Brand Ambassador uniforms.</p>
+      <a href="#" target="_blank" class="btn-video">Watch Video</a>
+    </div>
+
+    <div class="work-card reveal">
+      <h3 class="work-client">Stanbic Bank x Kenny G</h3>
+      <p class="work-desc">Leveraged Stanbic Bank's strategic partnership with the "One Night Only" concert series. Designed and produced dynamic, immersive video content displayed on arena screens throughout the Kenny G concert in Nairobi.</p>
+      <a href="#" target="_blank" class="btn-video">Watch Video</a>
+    </div>
+
+    <div class="work-card reveal" style="transition-delay:.1s">
+      <h3 class="work-client">GTBank Kenya</h3>
+      <p class="work-desc">Supported Art Direction, Graphic Design, and copywriting across the bank's digital and corporate communications, including the "Financial Literacy Series" and digital brand awareness campaigns.</p>
+      <a href="#" target="_blank" class="btn-video">Watch Video</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="experience">
+  <span class="tag reveal">004 — Experience</span>
+  <h2 class="section-title reveal" style="margin-bottom:0">The Professional<br>Timeline.</h2>
+
+  <div class="timeline">
+    <div class="t-item">
+      <div class="t-year">Jul 2024 — Present</div>
+      <div class="t-role">Senior Graphic Designer</div>
+      <div class="t-company">TBWA\ASCENT (Omnicom Network) — Nairobi, Kenya</div>
+      <p class="t-desc">Promoted from Junior to Senior within months due to performance and creative leadership. Led Art direction on national campaigns including Jack Daniel's "Make It Count", Absa Prestige Banking, and TIMIZA "Uko Ndani". Created motion graphics, digital content, BTL & ATL designs, and pitch decks.</p>
+    </div>
+
+    <div class="t-item" style="transition-delay:.1s">
+      <div class="t-year">Sept 2023 — Jun 2024</div>
+      <div class="t-role">Junior Graphic Designer</div>
+      <div class="t-company">TBWA\ASCENT (Omnicom Network) — Nairobi, Kenya</div>
+      <p class="t-desc">Joined the agency as a junior and quickly proved value in high-pressure, high-stakes projects. Contributed to Absa "Every kind of you", Timiza's "Uko ndani" and Jack Daniel's BTL ground assets.</p>
+    </div>
+
+    <div class="t-item" style="transition-delay:.2s">
+      <div class="t-year">April 2023 — Aug 2023</div>
+      <div class="t-role">Graphic Designer</div>
+      <div class="t-company">Hope Media (Hope Creative) — Nairobi, Kenya</div>
+      <p class="t-desc">Created poster and motion designs for CITAM Church branches, Hope TV, and Hope FM. Directed art for CITAM's DVBS campaign 2023 and engaged in storyboarding and client feedback loops under tight deadlines.</p>
+    </div>
+
+    <div class="t-item" style="transition-delay:.3s">
+      <div class="t-year">2021 — Present</div>
+      <div class="t-role">Lead Designer & Founder</div>
+      <div class="t-company">Independent Practice — Nairobi, Kenya</div>
+      <p class="t-desc">Provided branding, video editing, and campaign design for individual and SME clients. Designed and published books, built logos, brand guidelines, motion reels, and social content from scratch.</p>
+    </div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="clients-inner">
+    <span class="tag" style="text-align:center;display:block">005 — Mega Clients</span>
+    <h2 class="clients-title reveal">Trusted By.</h2>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee">
+      <div class="m-chunk">
+        <span class="client-name">Absa</span><span class="client-sep"></span>
+        <span class="client-name">Jack Daniels</span><span class="client-sep"></span>
+        <span class="client-name">Stanbic Bank</span><span class="client-sep"></span>
+        <span class="client-name">GTBank</span><span class="client-sep"></span>
+        <span class="client-name">Corteva</span><span class="client-sep"></span>
+        <span class="client-name">AGRA</span><span class="client-sep"></span>
+        <span class="client-name">Fresha</span><span class="client-sep"></span>
+        <span class="client-name">KenInvest</span><span class="client-sep"></span>
+        <span class="client-name">CITAM</span><span class="client-sep"></span>
+        <span class="client-name">Patiala Distillery</span><span class="client-sep"></span>
+        <span class="client-name">Branch</span><span class="client-sep"></span>
+      </div>
+      <div class="m-chunk" aria-hidden="true">
+        <span class="client-name">Absa</span><span class="client-sep"></span>
+        <span class="client-name">Jack Daniels</span><span class="client-sep"></span>
+        <span class="client-name">Stanbic Bank</span><span class="client-sep"></span>
+        <span class="client-name">GTBank</span><span class="client-sep"></span>
+        <span class="client-name">Corteva</span><span class="client-sep"></span>
+        <span class="client-name">AGRA</span><span class="client-sep"></span>
+        <span class="client-name">Fresha</span><span class="client-sep"></span>
+        <span class="client-name">KenInvest</span><span class="client-sep"></span>
+        <span class="client-name">CITAM</span><span class="client-sep"></span>
+        <span class="client-name">Patiala Distillery</span><span class="client-sep"></span>
+        <span class="client-name">Branch</span><span class="client-sep"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="journey">
+  <span class="tag reveal">006 — Creative Journey</span>
+  <h2 class="journey-title reveal">The Story<br>So <span class="green">Far.</span></h2>
+
+  <div class="journey-grid">
+
+    <div class="j-card wide">
+      <div class="j-ghost-n">00</div>
+      <span class="j-year">Origin — The Obsession</span>
+      <h3 class="j-title">Born Restless</h3>
+      <p class="j-body">My creative journey didn't start with a business plan — it started with an obsession. A need to make things that felt wrong in all the right ways. The ordinary was never enough. I was always drawn to the edges of visual culture; the places where the rules dissolve and genuine creative energy ignites. From day one, the question wasn't "what does the client want?" — it was "what has never been seen before?"</p>
+    </div>
+
+    <div class="j-card" style="transition-delay:.1s">
+      <div class="j-ghost-n">01</div>
+      <span class="j-year">2016 – 2018</span>
+      <h3 class="j-title">The Craft</h3>
+      <p class="j-body">Deep, relentless dives into typography, colour theory, and frame-by-frame animation. Building the foundation of a visual language that would become unmistakably mine — disciplined yet disobedient.</p>
+    </div>
+
+    <div class="j-card" style="transition-delay:.2s">
+      <div class="j-ghost-n">02</div>
+      <span class="j-year">2021</span>
+      <h3 class="j-title">Going Global</h3>
+      <p class="j-body">The work began travelling beyond Nairobi. Campaigns, brand films, and animated identities for clients who wanted something they had never seen before — and trusted me to deliver it.</p>
+    </div>
+
+    <div class="j-card" style="transition-delay:.3s">
+      <div class="j-ghost-n">03</div>
+      <span class="j-year">2024</span>
+      <h3 class="j-title">The Elevation</h3>
+      <p class="j-body">Formalising the obsession. Taking on massive agency roles, executing national BTL and ATL campaigns, and proving that art and storytelling that disobey the ordinary can thrive at the highest corporate levels.</p>
+    </div>
+
+    <div class="j-card" style="transition-delay:.4s">
+      <div class="j-ghost-n">04</div>
+      <span class="j-year">Now — Always</span>
+      <h3 class="j-title">The Next Chapter</h3>
+      <p class="j-body">Bigger briefs. Bolder visions. I'm not chasing trends — I'm setting the tone for what creative culture looks like when it refuses to play it safe. The story continues.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <span class="contact-tag">007 — Contact</span>
+  <h2 class="contact-head">Let's Connect.</h2>
+  <p class="contact-sub">Call: +254 719 861 270</p>
+  <a href="mailto:billow.ryan@gmail.com" class="contact-email">billow.ryan@gmail.com</a>
+  <div class="contact-socials">
+    <a href="#" class="social-link">Instagram</a>
+    <a href="#" class="social-link">Behance</a>
+    <a href="#" class="social-link">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2026 Bill Ryan Owano</span>
+  <span class="footer-loc">Nairobi, Kenya</span>
+  <span class="footer-mantra">Art and storytelling that disobey the ordinary.</span>
+</footer>
+
+<script>
+  /* Custom cursor */
+  const dot  = document.getElementById('cur-dot');
+  const ring = document.getElementById('cur-ring');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left = mx + 'px';
+    dot.style.top  = my + 'px';
+  });
+
+  (function animRing() {
+    rx += (mx - rx) * .09;
+    ry += (my - ry) * .09;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a, .skill-card, .work-card, .j-card, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      dot.style.transform  = 'translate(-50%,-50%) scale(2.5)';
+      ring.style.width     = '58px';
+      ring.style.height    = '58px';
+      ring.style.opacity   = '.8';
     });
-
-    (function animRing() {
-      rx += (mx - rx) * .09;
-      ry += (my - ry) * .09;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(animRing);
-    })();
-
-    document.querySelectorAll('a, .skill-card, .work-card, .j-card, button').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        dot.style.transform  = 'translate(-50%,-50%) scale(2.5)';
-        ring.style.width     = '58px';
-        ring.style.height    = '58px';
-        ring.style.opacity   = '.8';
-      });
-      el.addEventListener('mouseleave', () => {
-        dot.style.transform  = 'translate(-50%,-50%) scale(1)';
-        ring.style.width     = '38px';
-        ring.style.height    = '38px';
-        ring.style.opacity   = '.55';
-      });
+    el.addEventListener('mouseleave', () => {
+      dot.style.transform  = 'translate(-50%,-50%) scale(1)';
+      ring.style.width     = '38px';
+      ring.style.height    = '38px';
+      ring.style.opacity   = '.55';
     });
+  });
 
-    /* Nav scroll */
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 80);
+  /* Nav scroll */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  });
+
+  /* Hero ghost parallax */
+  const ghost = document.querySelector('.hero-ghost');
+  window.addEventListener('scroll', () => {
+    if (ghost) ghost.style.transform =
+      `translate(-50%, calc(-50% + ${window.scrollY * .13}px))`;
+  });
+
+  /* Intersection reveal */
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
     });
+  }, { threshold: .12 });
 
-    /* Hero ghost parallax */
-    const ghost = document.querySelector('.hero-ghost');
-    window.addEventListener('scroll', () => {
-      if (ghost) ghost.style.transform =
-        `translate(-50%, calc(-50% + ${window.scrollY * .13}px))`;
-    });
-
-    /* Intersection reveal */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: .12 });
-
-    document.querySelectorAll('.reveal, .t-item, .work-card, .j-card').forEach(el => observer.observe(el));
-  </script>
+  document.querySelectorAll('.reveal, .t-item, .work-card, .j-card').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
