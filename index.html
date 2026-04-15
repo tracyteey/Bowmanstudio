@@ -151,7 +151,7 @@
     left: 50%;
     transform: translate(-50%,-50%);
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(9rem, 20vw, 20rem);
+    font-size: clamp(6rem, 20vw, 20rem);
     color: transparent;
     -webkit-text-stroke: 1px rgba(106, 176, 35, 0.08);
     white-space: nowrap;
@@ -196,7 +196,7 @@
     margin-top: 2.2rem;
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: clamp(1rem, 2.2vw, 1.55rem);
+    font-size: clamp(1.1rem, 2.2vw, 1.55rem);
     color: var(--muted);
     max-width: 460px;
     line-height: 1.5;
@@ -785,26 +785,47 @@
     <span class="footer-mantra">Art and storytelling that disobey the ordinary.</span>
   </footer>
 
-  /* ─── RESPONSIVE ─── */
+  /* ─── HEAVY RESPONSIVE QUERIES (MOBILE FIXES) ─── */
   @media (max-width: 900px) {
-    nav { padding: 1.5rem 2rem; }
-    .nav-links, .nav-cta { display: none; }
-    section { padding: 5rem 2rem; }
-    #about { grid-template-columns: 1fr; gap: 3rem; }
-    .skills-grid { grid-template-columns: 1fr; }
-    .work-grid { grid-template-columns: 1fr; }
-    .journey-grid { grid-template-columns: 1fr; }
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links { display: none; } /* Hidden to save space */
+    .nav-cta { padding: .4rem .8rem; font-size: .5rem; } /* Kept CTA visible but smaller */
+    
+    section { padding: 5rem 1.5rem; }
+    
+    #about { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+    .about-stats-container { justify-content: center; text-align: center; }
+    
+    #hero { padding: 0 1.5rem 4rem; }
+    .hero-ghost { font-size: 25vw; } /* Stops huge text from breaking the screen horizontally */
+    .hero-scroll, .hero-counter, .hero-line { display: none; }
+    
+    .skills-grid, .work-grid, .journey-grid { grid-template-columns: 1fr; }
     .j-card.wide { grid-column: span 1; }
-    #hero { padding: 0 2rem 4rem; }
-    .hero-scroll { display: none; }
-    .hero-counter { display: none; }
+    
+    .skills-head { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+    .skills-head p { text-align: center; margin-top: 1rem; }
+    
+    .timeline { padding-left: 1.5rem; }
+    .t-item { padding: 0 0 3rem 1.5rem; }
+    
     footer { flex-direction: column; gap: .8rem; text-align: center; }
-    .skills-head { flex-direction: column; align-items: flex-start; gap: 1rem; }
   }
 
   @media (max-width: 480px) {
-    .hero-title { font-size: clamp(3rem, 16vw, 5rem); }
+    .hero-title { font-size: clamp(3rem, 14vw, 4.5rem); }
+    .hero-tagline { font-size: 1.1rem; }
+    
+    section { padding: 4rem 1.2rem; }
+    
+    .work-card, .skill-card, .j-card { padding: 2rem 1.5rem; } /* Reduces massive box padding on small screens */
+    
+    .stat-n { font-size: 2.8rem; }
     .about-stats-container { flex-direction: column; gap: 1.5rem; }
+    .about-image-wrapper::after { bottom: -15px; } 
+    
+    .contact-head { font-size: clamp(2.5rem, 10vw, 4rem); }
+    .contact-email { font-size: 1.1rem; }
   }
 </style>
 </head>
